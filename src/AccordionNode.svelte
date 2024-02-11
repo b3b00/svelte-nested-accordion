@@ -1,7 +1,17 @@
 <style>
-    .treemargin {
-        margin-left: 25px;
-    }
+.panel-title > a {
+  display: block;
+  position: relative;
+}
+.panel-title > a:after {
+  content: "\f078"; /* fa-chevron-down */
+  font-family: 'FontAwesome';
+  position: absolute;
+  right: 0;
+}
+.panel-title > a[aria-expanded="true"]:after {
+  content: "\f077"; /* fa-chevron-up */
+}
 	
 </style>
 <script lang="ts" generics="T extends TVNode">
@@ -74,7 +84,6 @@
 		-->
 			
 			<svelte:component this={nodeTemplate} data={node}/>
-			<span>🌈</span>
 			{#if selectable}	
 					<input type="checkbox" bind:checked={selected} on:change={handleSelect}/>
 			{/if}
@@ -82,7 +91,7 @@
 	  </a>
 	</h4>
   </div>
-  <div id="collapse-1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-1">
+  <div id="collapse-2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-2">
 	<div class="panel-body">
 	<!-- here stand children nodes -->
 		{#each node.children as subNode (subNode.id)}
