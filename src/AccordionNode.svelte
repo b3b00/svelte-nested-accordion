@@ -87,7 +87,6 @@
 			{#if selectable}	
 					<input type="checkbox" bind:checked={selected} on:change={handleSelect}/>
 			{/if}
-		Item 1
 	  </a>
 	</h4>
   </div>
@@ -104,18 +103,13 @@
 <div class="panel-heading" role="tab" id="heading-1">
 	<h4 class="panel-title">
 	  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-		<!-- here stand : 
-			- heading
-			- deploy/collapse button
-			- select checkbox
-		-->
+	
 			
 			<svelte:component this={nodeTemplate} data={node}/>
-			<span>🌈</span>
 			{#if selectable}	
 					<input type="checkbox" bind:checked={selected} on:change={handleSelect}/>
 			{/if}
-		Item 1
+		
 	  </a>
 	</h4>
   </div>
