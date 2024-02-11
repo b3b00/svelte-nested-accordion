@@ -1,18 +1,18 @@
 {
-  "name": "@bolduh/svelte-treeview",
+  "name": "@bolduh/svelte-nested-accordion",
   "version": "0.1.3",
   "description": "Simple tree view component.",
-  "homepage": "https://github.com/b3b00/svelte-treeview",
+  "homepage": "https://github.com/b3b00/svelte-nested-accordion",
   "bugs": {
-    "url": "https://github.com/b3b00/svelte-treeview/issues"
+    "url": "https://github.com/b3b00/svelte-nested-accordion/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/b3b00/svelte-treeview.git"
+    "url": "git+https://github.com/b3b00/svelte-nested-accordion.git"
   },
   "keywords": [
     "svelte",
-    "treeview",
+    "accordion",
     "component"
   ],
   "type": "module",

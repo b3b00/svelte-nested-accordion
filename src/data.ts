@@ -1,5 +1,5 @@
 
-import { TVNode } from "./TreeViewTypes";
+import { TVNode } from "./AccordionTypes";
 
 
 export enum CharacterKind {

@@ -2,9 +2,9 @@
 
     import {onMount} from "svelte";
 	import {setContext} from 'svelte';
-	import TreeViewNode from "./TreeViewNode.svelte";	
+	import AccordionNode from "./AccordionNode.svelte";	
 	import { createEventDispatcher } from 'svelte';
-	import {CustomEvent, TVNode} from './TreeViewTypes';
+	import {CustomEvent, TVNode} from './AccordionTypes';
 
 
 
@@ -148,7 +148,7 @@
 {/if}
 
 {#if currentRoot}	
-	<TreeViewNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} />
+	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} />
 {:else}
 	{#if emptyTreeMessage}
 		<span style="font-style:italic;display:block">{emptyTreeMessage}</span>

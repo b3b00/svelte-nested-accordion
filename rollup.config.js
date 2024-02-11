@@ -31,7 +31,7 @@ function serve() {
 }
 
 export default {
-	input: 'src/TreeView.svelte',
+	input: 'src/Accordion.svelte',
 	output: {
 		sourcemap: true,
 		format: 'iife',

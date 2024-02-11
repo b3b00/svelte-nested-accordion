@@ -1,12 +1,12 @@
 <script lang="ts">
 
-	import TreeView from './TreeView.svelte';
+	import Accordion from './Accordion.svelte';
 	import Filter from './Filter.svelte';
 	import Node from './Node.svelte';
 	import Node2 from './Node2.svelte';
 		import {selectedNode} from './teststore.js'
 	import {treeData, Disney, CharacterFilter, CharacterKind, Universe} from './data.js';
-	import {TVNode, CustomEvent} from './TreeViewTypes';
+	import {TVNode, CustomEvent} from './AccordionTypes';
 	
 
 
@@ -55,14 +55,14 @@
 {#if $selectedNode}
 <b style="display:block">#{$selectedNode.id} {$selectedNode.name}</b>	
 {/if}
-<TreeView emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..."></TreeView>
+<Accordion emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..."></Accordion>
 
 <h2>Select nodes</h2>
 
 
 <div style="display:flex;flex-direction:row">
 	<div>
-	<TreeView emptyTreeMessage="no super hero to show" on:selectionChanged={onSelectionChanged} selectable {root} nodeTemplate={Node2} {filter} ></TreeView>
+	<Accordion emptyTreeMessage="no super hero to show" on:selectionChanged={onSelectionChanged} selectable {root} nodeTemplate={Node2} {filter} ></Accordion>
 	</div>
 	<div>
 		{#if selectedNodes && selectedNodes.length > 0}
@@ -86,7 +86,7 @@
 
 
 
-<TreeView emptyTreeMessage="Mikey Mouse"  {root} nodeTemplate={Node2} searchTemplate={Filter} complexFilter={characterFilter}></TreeView>
+<Accordion emptyTreeMessage="Mikey Mouse"  {root} nodeTemplate={Node2} searchTemplate={Filter} complexFilter={characterFilter}></Accordion>
 
 
 <h2>Styling</h2>
@@ -116,7 +116,7 @@
 
 
 /**
-second treeview style
+second Accordion style
 */	
   
 
@@ -142,7 +142,7 @@ second treeview style
 
 <div style="display:flex;flex-direction:row">
 
-<TreeView emptyTreeMessage="Mikey Mouse" ref="style1" {root} nodeTemplate={Node2} {filter} ></TreeView>
-<TreeView emptyTreeMessage="Mikey Mouse" ref="style2" {root} nodeTemplate={Node2} {filter} ></TreeView>
+<Accordion emptyTreeMessage="Mikey Mouse" ref="style1" {root} nodeTemplate={Node2} {filter} ></Accordion>
+<Accordion emptyTreeMessage="Mikey Mouse" ref="style2" {root} nodeTemplate={Node2} {filter} ></Accordion>
 
 </div>
