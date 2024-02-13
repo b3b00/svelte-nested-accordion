@@ -3,6 +3,7 @@
 <script lang="ts">
 	import {selectedNode} from './teststore.js'
 	import {Disney} from './data.js';
+  import { children } from 'svelte/internal';
 	
     export let data: Disney;
 	
@@ -16,5 +17,5 @@
 
 </script>
 {#if data}
-<span style='cursor:pointer' role="link" tabindex={data.id} on:click={clickNode} on:keydown={clickNode}>#{data.id} {data.name} ({data.children ? data.children.length : 0})</span>
+<span style='cursor:pointer' role="link" tabindex={data.id} on:click={clickNode} on:keydown={clickNode}>#{data.id} {data.name} {data.children && data.children.length > 0 ? "("+data.children.length+")" : ""}</span>
 {/if}
