@@ -55,8 +55,8 @@
 {#if $selectedNode}
 <b style="display:block">#{$selectedNode.id} {$selectedNode.name}</b>	
 {/if}
-<Accordion selectable emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..."></Accordion>
-<!-- 
+<Accordion emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..."></Accordion>
+
 <h2>Select nodes</h2>
 
 
@@ -145,4 +145,4 @@ second Accordion style
 <Accordion emptyTreeMessage="Mikey Mouse" ref="style1" {root} nodeTemplate={Node2} {filter} ></Accordion>
 <Accordion emptyTreeMessage="Mikey Mouse" ref="style2" {root} nodeTemplate={Node2} {filter} ></Accordion>
 
-</div> -->
+</div> 
