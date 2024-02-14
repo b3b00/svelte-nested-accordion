@@ -5,7 +5,8 @@
 }
 
 .leaf {
-
+	border:thin solid;
+	border-top: 5px; 
 }	
 
 .note-title {
@@ -94,9 +95,9 @@
 			<svelte:component this={nodeTemplate} data={node}/>
 		</div>
 		{#if deployed}
-			<span style='cursor:pointer;display:inline' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronUp}"/></span>
+			<span style='cursor:pointer;display:inline;float:right' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronUp}"/></span>
 		{:else}
-			<span style='cursor:pointer;display:inline' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronDown}"/></span>
+			<span style='cursor:pointer;display:inline;float:right' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronDown}"/></span>
 		{/if}
 	</div>
 	<div class="node-body" style="display:{deployed ? "block" : "none"}">
