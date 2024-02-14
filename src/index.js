@@ -1,3 +1,3 @@
 // src/index.js
-import TreeView from './TreeView.svelte';
-export default TreeView;
+import Accordion from './Accordion';
+export default Accordion;
