@@ -5,8 +5,8 @@
 }
 
 .leaf {
-	border:thin solid;
-	border-top: 5px; 
+	border:thin solid !important;
+	border-top: 5px; 	
 	padding : 15px;
 	border-radius: 5px;	
 }	
