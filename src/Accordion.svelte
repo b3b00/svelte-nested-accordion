@@ -152,7 +152,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"/>	 -->
 	
 </svelte:head>
-<div style="display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:column; width:fit-content;">
 {#if filter && !complexFilter}
 	<input type="text" bind:value={search} placeholder="{searchPlaceholder}"/>
 {/if}
