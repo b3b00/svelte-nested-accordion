@@ -1,6 +1,6 @@
 {
   "name": "@bolduh/svelte-nested-accordion",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "Simple tree view component.",
   "homepage": "https://github.com/b3b00/svelte-nested-accordion",
   "bugs": {

@@ -10,14 +10,6 @@
 	padding : 15px;
 	border-radius: 5px;	
 }	
-
-.note-title {
-
-}
-
-.node-body {	
-	margin-left: 50px;
-}
 	
 </style>
 <script lang="ts" generics="T extends TVNode">
@@ -27,7 +19,6 @@
 	import {TVNode} from './AccordionTypes';
 	import Fa from 'svelte-fa';
     import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-  import Accordion from "./Accordion.svelte";
 
     export let node;
 
@@ -38,6 +29,8 @@
 	export let selectable;
 
 	export let selected = false;
+
+	export let tab:string = "25px";
 
 	let deployed = false;
 	
@@ -102,9 +95,9 @@
 			<span style='cursor:pointer;display:inline;float:right' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronDown}"/></span>
 		{/if}
 	</div>
-	<div class="node-body" style="display:{deployed ? "block" : "none"}">
+	<div class="node-body" style="display:{deployed ? "block" : "none"};margin-left: {tab};">
 		{#each node.children as subNode (subNode.id)}
-			<svelte:self {ref} selected={isNodeSelected(subNode)} {selectable} node={subNode} {nodeTemplate}/>
+			<svelte:self {ref} selected={isNodeSelected(subNode)} {selectable} node={subNode} {nodeTemplate} tab={tab}/>
 		{/each}	
 	</div>
 </div>   

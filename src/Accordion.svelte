@@ -27,6 +27,8 @@
     
 	export let ref: string = "$xirglub!";
 
+	export let tab : string = "25px";
+
     let search : string;
 
     let complexSearch: S; 
@@ -161,7 +163,7 @@
 {/if}
 
 {#if currentRoot}	
-	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} />
+	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} tab={tab}/>
 {:else}
 	{#if emptyTreeMessage}
 		<span style="font-style:italic;display:block">{emptyTreeMessage}</span>

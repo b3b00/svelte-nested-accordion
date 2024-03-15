@@ -55,14 +55,14 @@
 {#if $selectedNode}
 <b style="display:block">#{$selectedNode.id} {$selectedNode.name}</b>	
 {/if}
-<Accordion emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..."></Accordion>
+<Accordion tab="75px" emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..."></Accordion>
 
 <h2>Select nodes</h2>
 
 
 <div style="display:flex;flex-direction:row">
 	<div>
-	<Accordion emptyTreeMessage="no super hero to show" on:selectionChanged={onSelectionChanged} selectable {root} nodeTemplate={Node2} {filter} ></Accordion>
+	<Accordion tab="10px" emptyTreeMessage="no super hero to show" on:selectionChanged={onSelectionChanged} selectable {root} nodeTemplate={Node2} {filter} ></Accordion>
 	</div>
 	<div>
 		{#if selectedNodes && selectedNodes.length > 0}
@@ -86,7 +86,7 @@
 
 
 
-<Accordion emptyTreeMessage="Mikey Mouse"  {root} nodeTemplate={Node2} searchTemplate={Filter} complexFilter={characterFilter}></Accordion>
+<Accordion tab="50px" emptyTreeMessage="Mikey Mouse"  {root} nodeTemplate={Node2} searchTemplate={Filter} complexFilter={characterFilter}></Accordion>
 
 
 <h2>Styling</h2>
