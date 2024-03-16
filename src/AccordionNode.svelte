@@ -20,6 +20,8 @@
 	import Fa from 'svelte-fa';
     import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
+	export let disposition : string = "right";
+
     export let node;
 
 	export let ref;
@@ -40,7 +42,9 @@
 	let selectNode = getContext<(n:any, selected:boolean) => void>('selectNode');
 	let isNodeSelected = getContext<(n:any) => boolean>('isNodeSelected');
     
-    onMount(async () => {        		
+	let dispositionStyle : string = "float:right; padding-left:15px";
+    onMount(async () => {        	
+		dispositionStyle = disposition == "right" ? "float:right; padding-left:15px" : "float:left; padding-right:15px";		
         child = node.children;        
         isNode = child !== undefined && child !== null && Array.isArray(child) && child.length > 0; 
 		deployed = true;   
@@ -86,18 +90,25 @@
 		{#if selectable}	
 			<input type="checkbox" bind:checked={selected} on:change={handleSelect}/>
 		{/if}
-		<div style="display:inline">
-			<svelte:component this={nodeTemplate} data={node}/>
-		</div>
+		{#if disposition == "right"}
+			<div style="display:inline">
+				<svelte:component this={nodeTemplate} data={node}/>
+			</div>
+		{/if}
 		{#if deployed}
-			<span style='cursor:pointer;display:inline;float:right' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronUp}"/></span>
+			<span style='cursor:pointer;display:inline;{dispositionStyle}' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronUp}"/></span>
 		{:else}
-			<span style='cursor:pointer;display:inline;float:right' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronDown}"/></span>
+			<span style='cursor:pointer;display:inline;{dispositionStyle}' tabindex="-1" role="link" on:click={clickNode} on:keydown={clickNode}><Fa icon="{faChevronDown}"/></span>
+		{/if}
+		{#if disposition == "left"}
+			<div style="display:inline">
+				<svelte:component this={nodeTemplate} data={node}/>
+			</div>
 		{/if}
 	</div>
 	<div class="node-body" style="display:{deployed ? "block" : "none"};margin-left: {tab};">
 		{#each node.children as subNode (subNode.id)}
-			<svelte:self {ref} selected={isNodeSelected(subNode)} {selectable} node={subNode} {nodeTemplate} tab={tab}/>
+			<svelte:self {ref} selected={isNodeSelected(subNode)} {selectable} node={subNode} {nodeTemplate} tab={tab} {disposition} />
 		{/each}	
 	</div>
 </div>   

@@ -10,12 +10,14 @@
 
 	const dispatch = createEventDispatcher<{ "selectionChanged": T[] }>();
   
+	export let disposition : string = "right";
 
     export let root:T & TVNode = undefined;
     
     export let nodeTemplate;
 
 	export let searchTemplate = undefined;
+
     
     export let filter : (n:T & TVNode, pattern:string)=> boolean = undefined;
 
@@ -163,7 +165,7 @@
 {/if}
 
 {#if currentRoot}	
-	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} tab={tab}/>
+	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} tab={tab} disposition={disposition}/>
 {:else}
 	{#if emptyTreeMessage}
 		<span style="font-style:italic;display:block">{emptyTreeMessage}</span>

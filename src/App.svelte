@@ -55,7 +55,15 @@
 {#if $selectedNode}
 <b style="display:block">#{$selectedNode.id} {$selectedNode.name}</b>	
 {/if}
-<Accordion tab="75px" emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..."></Accordion>
+<Accordion debug="one" tab="75px" emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..."></Accordion>
+
+
+<h2>simple filter - deploy on left</h2>
+
+{#if $selectedNode}
+<b style="display:block">#{$selectedNode.id} {$selectedNode.name}</b>	
+{/if}
+<Accordion tab="75px" debug="LEFTY" emptyTreeMessage="Mickey Mouse" {root}  nodeTemplate={Node} {filter} searchPlaceholder="search the tree..." disposition="left"></Accordion>
 
 <h2>Select nodes</h2>
 
