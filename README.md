@@ -7,7 +7,7 @@ wait for a real release and readme
 
 ## demo
 
-[svelte-treeview](https://sveltetreeview.pages.dev/)
+[svelte-nested-accordion](https://svelte-nested-accordion.pages.dev/)
 
 
 ## installation
