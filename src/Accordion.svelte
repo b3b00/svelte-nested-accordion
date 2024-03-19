@@ -124,6 +124,9 @@
         if (filter && !complexFilter) {		
             currentRoot = nodefilter(root, search);						
         }        
+		if (complexFilter && !filter) {
+			currentRoot = complexNodefilter(root,complexSearch);
+		}
     }
 
     onMount(async () => {
