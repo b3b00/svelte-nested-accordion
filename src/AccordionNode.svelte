@@ -4,12 +4,6 @@
 
 }
 
-.leaf {
-	border:thin solid !important;
-	border-top: 5px; 	
-	padding : 15px;
-	border-radius: 5px;	
-}	
 	
 </style>
 <script lang="ts" generics="T extends TVNode">
@@ -21,6 +15,12 @@
     import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 	export let disposition : string = "right";
+
+	export let boxStyle:any = {		
+		"border-bottom": "thin solid black",
+		"border-left": "thin dotted black",
+		"padding" : "10px"
+	};
 
     export let node;
 
@@ -82,11 +82,15 @@
 		deployed = !deployed;
 	}
 
-</script>
+	function styling (node, vars) {
+		Object.entries(vars).forEach(([ p, v ]) => { node.style[p] = v })
+	}
 
+</script>
+<slot name="style"></slot>
 {#if node.children !== null && node.children !== undefined && node.children.length > 0}
 <div class="panel panel-default">
-	<div class="leaf">
+	<div use:styling={boxStyle}>
 		{#if selectable}	
 			<input type="checkbox" bind:checked={selected} on:change={handleSelect}/>
 		{/if}
@@ -108,12 +112,12 @@
 	</div>
 	<div class="node-body" style="display:{deployed ? "block" : "none"};margin-left: {tab};">
 		{#each node.children as subNode (subNode.id)}
-			<svelte:self {ref} selected={isNodeSelected(subNode)} {selectable} node={subNode} {nodeTemplate} tab={tab} {disposition} />
+			<svelte:self {ref} selected={isNodeSelected(subNode)} {selectable} node={subNode} {nodeTemplate} tab={tab} {disposition} {boxStyle}/>
 		{/each}	
 	</div>
 </div>   
 {:else}
-<div class="leaf">
+<div use:styling={boxStyle}>
 	{#if selectable}	
 		<input style="display:inline" type="checkbox" bind:checked={selected} on:change={handleSelect}/>
 	{/if}

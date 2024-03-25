@@ -31,6 +31,12 @@
 
 	export let tab : string = "25px";
 
+	export let boxStyle:any = {		
+		"border-bottom": "thin solid black",
+		"border-left": "thin dotted black",
+		"padding" : "10px"
+	};
+
     let search : string;
 
     let complexSearch: S; 
@@ -39,7 +45,7 @@
 
     let currentRoot;
 
-		let selection = {}
+	let selection = {}
 
 	let selectNode = (selectedNode:T, selected) => {
 		selection[selectedNode.id] = selected;	
@@ -159,6 +165,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"/>	 -->
 	
 </svelte:head>
+
 <div style="display:flex;flex-direction:column; width:fit-content;">
 {#if filter && !complexFilter}
 	<input type="text" bind:value={search} placeholder="{searchPlaceholder}"/>
@@ -168,7 +175,7 @@
 {/if}
 
 {#if currentRoot}	
-	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} tab={tab} disposition={disposition}/>
+	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} tab={tab} disposition={disposition} {boxStyle}/>
 {:else}
 	{#if emptyTreeMessage}
 		<span style="font-style:italic;display:block">{emptyTreeMessage}</span>

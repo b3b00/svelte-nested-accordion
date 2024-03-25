@@ -6,7 +6,7 @@
 	import Node2 from './Node2.svelte';
 		import {selectedNode} from './teststore.js'
 	import {treeData, Disney, CharacterFilter, CharacterKind, Universe} from './data.js';
-	import {TVNode, CustomEvent} from './AccordionTypes';
+	import {CustomEvent} from './AccordionTypes';
 	
 
 
@@ -150,7 +150,20 @@ second Accordion style
 
 <div style="display:flex;flex-direction:row">
 
-<Accordion emptyTreeMessage="Mikey Mouse" ref="style1" {root} nodeTemplate={Node2} {filter} ></Accordion>
-<Accordion emptyTreeMessage="Mikey Mouse" ref="style2" {root} nodeTemplate={Node2} {filter} ></Accordion>
+<Accordion emptyTreeMessage="Mikey Mouse" ref="style1" {root} nodeTemplate={Node2} {filter} boxStyle={{		
+	"border-bottom": "thin solid black",
+	"border-left": "thin dotted black",	
+	"padding" : "10px",
+	"background-color":"lightgrey",
+	"font-weight":"bold"
+}}/>
+<Accordion emptyTreeMessage="Mikey Mouse" ref="style2" {root} nodeTemplate={Node2} {filter} disposition="left" boxStyle={{		
+	"border-bottom": "thin solid red",
+	"border-left": "thin dotted red",		
+	"border-right": "thin dashed red",
+	"border-top": "solid 5px red",
+	"padding" : "10px",
+	"border-radius":"8px"
+}}></Accordion>
 
 </div> 
