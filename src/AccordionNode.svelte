@@ -1,11 +1,4 @@
-<style>
 
-.node {
-
-}
-
-	
-</style>
 <script lang="ts" generics="T extends TVNode">
 
     import {onMount} from "svelte";
@@ -16,11 +9,7 @@
 
 	export let disposition : string = "right";
 
-	export let boxStyle:any = {		
-		"border-bottom": "thin solid black",
-		"border-left": "thin dotted black",
-		"padding" : "10px"
-	};
+	export let nodeClass = "defaultStyle";
 
     export let node;
 
@@ -82,15 +71,12 @@
 		deployed = !deployed;
 	}
 
-	function styling (node, vars) {
-		Object.entries(vars).forEach(([ p, v ]) => { node.style[p] = v })
-	}
 
 </script>
 <slot name="style"></slot>
 {#if node.children !== null && node.children !== undefined && node.children.length > 0}
 <div class="panel panel-default">
-	<div use:styling={boxStyle}>
+	<div class={nodeClass}>
 		{#if selectable}	
 			<input type="checkbox" bind:checked={selected} on:change={handleSelect}/>
 		{/if}
@@ -112,12 +98,14 @@
 	</div>
 	<div class="node-body" style="display:{deployed ? "block" : "none"};margin-left: {tab};">
 		{#each node.children as subNode (subNode.id)}
-			<svelte:self {ref} selected={isNodeSelected(subNode)} {selectable} node={subNode} {nodeTemplate} tab={tab} {disposition} {boxStyle}/>
+			<svelte:self {ref} selected={isNodeSelected(subNode)} {selectable} node={subNode} {nodeTemplate} tab={tab} {disposition} {nodeClass}>
+				<slot name="style"></slot>
+			</svelte:self>
 		{/each}	
 	</div>
 </div>   
 {:else}
-<div use:styling={boxStyle}>
+<div class={nodeClass}>
 	{#if selectable}	
 		<input style="display:inline" type="checkbox" bind:checked={selected} on:change={handleSelect}/>
 	{/if}

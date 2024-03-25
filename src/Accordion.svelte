@@ -31,11 +31,7 @@
 
 	export let tab : string = "25px";
 
-	export let boxStyle:any = {		
-		"border-bottom": "thin solid black",
-		"border-left": "thin dotted black",
-		"padding" : "10px"
-	};
+	export let nodeClass = "defaultStyle";
 
     let search : string;
 
@@ -164,8 +160,15 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"/>	 -->
 	
+<style>
+	.defaultStyle {
+		border-bottom: thin solid black;
+		border-left: thin dotted black;
+		padding : 10px
+	}
+</style>		
 </svelte:head>
-
+<slot name="style"></slot>
 <div style="display:flex;flex-direction:column; width:fit-content;">
 {#if filter && !complexFilter}
 	<input type="text" bind:value={search} placeholder="{searchPlaceholder}"/>
@@ -175,7 +178,8 @@
 {/if}
 
 {#if currentRoot}	
-	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} tab={tab} disposition={disposition} {boxStyle}/>
+	<AccordionNode {ref} {selectable} node={currentRoot} nodeTemplate={nodeTemplate} tab={tab} disposition={disposition} {nodeClass}>		
+	</AccordionNode>
 {:else}
 	{#if emptyTreeMessage}
 		<span style="font-style:italic;display:block">{emptyTreeMessage}</span>
